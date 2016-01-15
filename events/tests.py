@@ -10,4 +10,4 @@ class homePageViewTest(TestCase):
 	def test_home_page_html(self):
 		request= HttpRequest()
 		response = home_page(request)
-		self.assertIn('<title>EventBrite Events</title>', response.content)
+		self.assertIn('<title>EventBrite Events</title>', response.content.decode('utf8'))
