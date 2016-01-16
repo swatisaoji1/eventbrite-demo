@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+		
+{% block content %}
+	<div class="container jumbotron">
+		<div class="container ebpromt">
+			<h4>Let us know your TOP THREE choices and we will search great events for you !!</h4>
+		</div>
+		<form class="form" action="events" method="POST" name="category_list" onsubmit="return(getcount());">
+		{% csrf_token %} 
+		<div class="row-fluid">
+			<div class="col-md-12">
+			{% for category in categories %}
+			<div class="col-md-4">
+				<div class="checkbox">
+					<input type="checkbox" name="categories" onclick="chkcontrol({{ forloop.counter0 }});" value="{{category.id}}">
+						{{category.name}}
+					</input>
+				</div>
+			</div>
+			{% endfor %}
+			</div>	
+		</div>
+		<button class="btn btn-lg btn-primary pull-right" type="submit" >Get Events</button>
+		</form>	
+	</div>
+	
+{% endblock content %}

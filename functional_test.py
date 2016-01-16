@@ -10,14 +10,15 @@ class HomePageTest(unittest.TestCase):
 
 	def test_home_page(self):
 		# Alice hears about this cool website 
-
 		# she visits the website and see the title ''
-
-		# she notices a list of checkboxes to chose from
-
-		
 		self.browser.get('http://localhost:8000')
 		self.assertIn ('EventBrite Events' , self.browser.title)
+
+		# she notices a list of checkboxes to chose from
+		
+
+
+		
 
 
 

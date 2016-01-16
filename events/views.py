@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 import os
+import events.services as services
 
 # Create your views here.
 
 def home_page(request):
-	return HttpResponse('<title>EventBrite Events</title>')
+	categories = services.get_categories()
+	return render(request, "events/home.html", categories)
