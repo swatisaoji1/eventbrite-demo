@@ -19,5 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', 'events.views.home_page' , name='home'),
-    url(r'^events$', 'events.views.home_page'),
+    url(r'^events$', 'events.views.events'),
+    url(r'^events/(?P<categories_string>[\d+,]+)/$','events.views.events'),
+    url(r'^events/(?P<categories_string>[\d+,]+)/(?P<page_no>\d+)/','events.views.events'),
 ]

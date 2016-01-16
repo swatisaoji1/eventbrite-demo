@@ -1,5 +1,6 @@
 import unittest
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 
 class HomePageTest(unittest.TestCase):
 	def setUp(self):
@@ -13,9 +14,6 @@ class HomePageTest(unittest.TestCase):
 		# she visits the website and see the title ''
 		self.browser.get('http://localhost:8000')
 		self.assertIn ('EventBrite Events' , self.browser.title)
-
-		# she notices a list of checkboxes to chose from
-		
 
 
 		

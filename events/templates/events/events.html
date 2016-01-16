@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="container pagination">
+	
+	<div class="container row">
+		<p class="pull-right">Page {{data.meta.page_number}} out of {{data.meta.page_count}} </p>
+	</div>
+	<nav>
+	  <ul class="pager">
+	    <li class="previous"><a href="/events/{{data.categories}}/{{data.previous_page}}"><span aria-hidden="true">&larr;</span> Previous</a></li>
+	    <li class="next"><a href="/events/{{data.categories}}/{{data.next_page}}">Next <span aria-hidden="true">&rarr;</span></a></li>
+	  </ul>
+	</nav>
+	<hr>
+
+	
+	{% for event in data.events %}
+		<div class="event_container">
+			
+			<div class="row">
+				<div class="col-md-4">
+					<img class="logo" src="{{event.logo.url}}" onError="this.onerror=null;this.src='{% static 'images/no-image.jpeg'%}';" width="300px" height="200px">
+				</div>
+				<div class="col-md-8">
+					<div class="ebtitle">
+						{{event.name.text}}
+					</div>
+					<div class="addr">
+						{{event.venue.address.address_1}}, {{event.venue.address.city}}
+					</div>
+					<hr>
+					<div class="details">
+						{{event.description.text}}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+	<div class="col-centered">	
+		<ul class="pagination ">
+		<li>
+	      <a href="/events/{{data.categories}}/1" aria-label="Previous">
+	        <span aria-hidden="true">&laquo; First</span>
+	      </a>
+	    </li>
+		 <li>
+	      <a href="/events/{{data.categories}}/{{data.previous_page}}" aria-label="Previous">
+	        <span aria-hidden="true">&laquo;</span>
+	      </a>
+	    </li>
+		{% for page in data.page_no_list %}
+			<li {% if page == data.meta.page_number %} class="active" {% endif %} >
+				<a 	href="/events/{{data.categories}}/{{page}}"> {{page}}	</a>
+			</li>
+		{% endfor %}
+		 <li>
+	      <a href="/events/{{data.categories}}/{{data.next_page}}" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	    <li>
+	      <a href="/events/{{data.categories}}/{{data.meta.page_count}}" aria-label="Previous">
+	        <span aria-hidden="true">&raquo; Last</span>
+	      </a>
+	    </li>
+		</ul>
+	</div>	
+</div>	
+{% endblock content %}
