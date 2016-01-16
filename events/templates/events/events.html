@@ -8,8 +8,8 @@
 	</div>
 	<nav>
 	  <ul class="pager">
-	    <li class="previous"><a href="/events/{{data.categories}}/{{data.previous_page}}"><span aria-hidden="true">&larr;</span> Previous</a></li>
-	    <li class="next"><a href="/events/{{data.categories}}/{{data.next_page}}">Next <span aria-hidden="true">&rarr;</span></a></li>
+	    <li class="previous {% if data.meta.page_number == 1 %} disabled {% endif %}""><a href="/events/{{data.categories}}/{{data.previous_page}}"><span aria-hidden="true">&larr;</span> Previous</a></li>
+	    <li class="next {% if data.meta.page_number == data.meta.page_count %} disabled {% endif %}"><a href="/events/{{data.categories}}/{{data.next_page}}">Next <span aria-hidden="true">&rarr;</span></a></li>
 	  </ul>
 	</nav>
 	<hr>
@@ -44,12 +44,12 @@
 	{% endfor %}
 	<div class="col-centered">	
 		<ul class="pagination ">
-		<li>
+		<li {% if data.meta.page_number == 1 %} class="disabled" {% endif %} >
 	      <a href="/events/{{data.categories}}/1" aria-label="Previous">
 	        <span aria-hidden="true">&laquo; First</span>
 	      </a>
 	    </li>
-		 <li>
+		 <li {% if data.meta.page_number == 1 %} class="disabled" {% endif %} >
 	      <a href="/events/{{data.categories}}/{{data.previous_page}}" aria-label="Previous">
 	        <span aria-hidden="true">&laquo;</span>
 	      </a>
@@ -59,12 +59,12 @@
 				<a 	href="/events/{{data.categories}}/{{page}}"> {{page}}	</a>
 			</li>
 		{% endfor %}
-		 <li>
+		 <li {% if data.meta.page_number == data.meta.page_count %} class="disabled" {% endif %} >
 	      <a href="/events/{{data.categories}}/{{data.next_page}}" aria-label="Next">
 	        <span aria-hidden="true">&raquo;</span>
 	      </a>
 	    </li>
-	    <li>
+	    <li {% if data.meta.page_number == data.meta.page_count %} class="disabled" {% endif %} >
 	      <a href="/events/{{data.categories}}/{{data.meta.page_count}}" aria-label="Previous">
 	        <span aria-hidden="true">&raquo; Last</span>
 	      </a>
