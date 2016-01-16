@@ -1,0 +1,51 @@
+
+h1{
+	color:red;
+}
+
+.pagination p{
+	color: #008B8B;
+}
+
+.checkbox-grid li {
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+
+.container .col-centered{
+    float: none;
+    margin: auto;
+}
+
+.addr{
+	font-family: verdana;
+	text-transform: capitalize;
+	color:gray;
+}
+
+.event_container{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.19);
+	margin:	10px 10px 5px 10px;
+}
+
+.logo{
+	
+}
+.ebtitle{
+	font-family: verdana;
+	text-transform: uppercase;
+
+}
+
+.otext{
+	color:#FFA500;
+}
+
+
+.ebpromt{
+	text-align: center;
+	border-bottom: 1px solid gray;
+	margin-bottom: 10px;
+}
