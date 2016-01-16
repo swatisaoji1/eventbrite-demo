@@ -30,9 +30,14 @@
 						{{event.venue.address.address_1}}, {{event.venue.address.city}}
 					</div>
 					<hr>
-					<div class="details">
-						{{event.description.text}}
+					<div class="summary">
+						<div class="details">
+							{{event.description.text}}
+						</div>
+						<div class="dots"><span>&hellip;</span></div>
+						<a href="{{event.url}}" target="_blank" class="btn btn-primary pull-right">Details Of the Event</a>
 					</div>
+				
 				</div>
 			</div>
 		</div>

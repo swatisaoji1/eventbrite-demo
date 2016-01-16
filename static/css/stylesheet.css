@@ -49,3 +49,28 @@ h1{
 	border-bottom: 1px solid gray;
 	margin-bottom: 10px;
 }
+
+.summary{
+	padding-right: 50px;
+}
+
+.details{
+	height: 3em; 
+    overflow: hidden;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
+.dots {
+    height: 0;
+    position: relative;
+    top: -1.2em;
+    text-align: right;
+}
+.dots span {
+    background: white; 
+    padding-left: 0.5em;
+    position: relative;
+    top: -0.25em;
+}
